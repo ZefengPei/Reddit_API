@@ -23,10 +23,10 @@ env:
 
 # Before running tests, source necessary scripts
 before_script:
-  - Rscript -e 'source("reddit_auth.R")'
-  - Rscript -e 'source("get_subreddit_info.R")'
-  - Rscript -e 'source("get_subreddit_posts.R")'
-  - Rscript -e 'source("get_post_comments.R")'
+  - Rscript -e 'source("./R/reddit_auth.R")'
+  - Rscript -e 'source("./R/get_subreddit_info.R")'
+  - Rscript -e 'source("./R/get_subreddit_posts.R")'
+  - Rscript -e 'source("./R/get_post_comments.R")'
 
 # Run tests using testthat (ensure you have test files in "tests/testthat/")
 script:
