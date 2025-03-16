@@ -18,7 +18,7 @@
 #' @export
 reddit_auth <- function(client_id, client_secret, username, password) {
   token_url <- "https://www.reddit.com/api/v1/access_token"
-
+  
   response <- POST(
     token_url,
     authenticate(client_id, client_secret),
@@ -28,14 +28,13 @@ reddit_auth <- function(client_id, client_secret, username, password) {
       password = password
     ),
     encode = "form",
-    #user_agent("R:RedditRPackage:v1.0 (by /u/Fantastic_Snow_7640)")
     user_agent("R:RedditPackage:v1.0 (by /u/your_reddit_username)")
   )
-
+  
   if (http_status(response)$category != "Success") {
     stop("Failed to authenticate with Reddit API")
   }
-
+  
   token_data <- content(response, as = "parsed")
   return(token_data$access_token)
 }
