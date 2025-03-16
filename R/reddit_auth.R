@@ -27,8 +27,9 @@ reddit_auth <- function(client_id, client_secret, username, password) {
       username = username,
       password = password
     ),
-    encode = "form"
+    encode = "form",
     #user_agent("R:RedditRPackage:v1.0 (by /u/Fantastic_Snow_7640)")
+    user_agent("R:RedditPackage:v1.0 (by /u/your_reddit_username)")
   )
 
   if (http_status(response)$category != "Success") {

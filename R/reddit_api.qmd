@@ -1,0 +1,36 @@
+---
+title: "reddit_api"
+format: revealjs
+editor: visual
+---
+
+```{r}
+source("reddit_auth.R")  
+source("get_subreddit_info.R")  
+source("get_subreddit_posts.R") 
+source("get_post_comments.R")  
+source("get_user_info.R") 
+source("get_subreddit_rules.R") 
+```
+
+```{r}
+library(httr)
+
+client_id <- "PeAknuUXpERmde8cC-sSEQ"
+client_secret <- "3uy3ngtkPB0vlnCogMpeemmnaMEqaA"
+username <- "Fantastic_Snow_7640"
+password <- "bay_reddit"
+
+access_token <- reddit_auth(client_id, client_secret, username, password)
+print(paste("Access Token:", access_token))
+
+subreddit_info <- get_subreddit_info("rstats", access_token)
+print(subreddit_info)
+
+posts <- get_subreddit_posts("rstats", access_token, 5)
+print(posts)
+
+comments <- get_post_comments("programming", "1j958n9", access_token)
+print(comments)
+
+```
