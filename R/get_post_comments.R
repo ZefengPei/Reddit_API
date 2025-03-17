@@ -29,7 +29,7 @@ get_post_comments <- function(subreddit, post_id, access_token, username) {
   url <- paste0("https://oauth.reddit.com/r/", subreddit, "/comments/", post_id)
 
   response <- GET(url, add_headers(Authorization = paste("bearer", access_token),
-                                   user_agent("R:RedditPackage:v1.0 (by /u/username)")
+                                   "user_agent" = ("R:RedditPackage:v1.0 (by /u/username)")
                                    ))
 
 
@@ -47,8 +47,8 @@ get_post_comments <- function(subreddit, post_id, access_token, username) {
           Author = sapply(comments, function(x) ifelse(!is.null(x$data$author), x$data$author, "Unknown")),
           Comment = sapply(comments, function(x) ifelse(!is.null(x$data$body), x$data$body, "[Deleted]")),
           Upvotes = sapply(comments, function(x) ifelse(!is.null(x$data$ups), x$data$ups, 0)),
-          Replies = sapply(comments, function(x) ifelse(!is.null(x$data$replies) && "data" %in% names(x$data$replies),
-                                                        length(x$data$replies$data$children), 0)),
+          Replies = sapply(comments, function(x) ifelse(!is.null(x$data$replies) && "data" %in% names(x$data$replies),as.integer(length(x$data$replies$data$children)),  
+          as.integer(0))),
           stringsAsFactors = FALSE
         )
 

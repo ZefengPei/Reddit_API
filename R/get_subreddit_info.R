@@ -37,7 +37,7 @@ get_subreddit_info <- function(subreddit, access_token) {
 
   response <- GET(url, add_headers(
     Authorization = paste("bearer", access_token),
-    user_agent("R:RedditPackage:v1.0 (by /u/username)")
+    "user_agent" = ("R:RedditPackage:v1.0 (by /u/username)")
 
   ))
 
