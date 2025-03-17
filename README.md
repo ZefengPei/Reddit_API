@@ -1,4 +1,5 @@
 # Reddit API R Package
+![Workflow Status](https://github.com/ZefengPei/Reddit_API/actions/workflows/test.yml/badge.svg)
 
 This R package provides an interface to interact with the Reddit API, allowing users to retrieve various types of Reddit data such as posts, comments, user profiles, and subreddit details. It also includes sentiment analysis for Reddit comments and data visualization.
 
