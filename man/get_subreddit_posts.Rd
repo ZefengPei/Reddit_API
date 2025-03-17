@@ -4,7 +4,7 @@
 \alias{get_subreddit_posts}
 \title{Retrieve Hot Posts from a Subreddit}
 \usage{
-get_subreddit_posts(subreddit, access_token, limit, username)
+get_subreddit_posts(subreddit, access_token, limit)
 }
 \arguments{
 \item{subreddit}{A string specifying the subreddit name (without the "/r/").}
@@ -12,8 +12,6 @@ get_subreddit_posts(subreddit, access_token, limit, username)
 \item{access_token}{A string representing the access token obtained via Reddit API authentication.}
 
 \item{limit}{An integer specifying the number of posts to retrieve.}
-
-\item{username}{A string representing the Reddit username used for the User-Agent header.}
 }
 \value{
 A data frame containing details of the retrieved posts, including:

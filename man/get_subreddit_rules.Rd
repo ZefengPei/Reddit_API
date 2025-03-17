@@ -4,22 +4,20 @@
 \alias{get_subreddit_rules}
 \title{Retrieve Subreddit Rules}
 \usage{
-get_subreddit_rules(subreddit, access_token, username)
+get_subreddit_rules(subreddit, access_token)
 }
 \arguments{
 \item{subreddit}{A string specifying the subreddit name.}
 
 \item{access_token}{A string containing the access token obtained via Reddit API authentication.}
-
-\item{username}{A string specifying the Reddit username (used in the User-Agent header).}
 }
 \value{
 A data frame containing the following columns:
 \describe{
-  \item{Title}{The short name of the rule.}
-  \item{Description}{A detailed description of the rule.}
-  \item{Priority}{The priority ranking of the rule.}
-  \item{Violation_Reason}{The reason provided for a rule violation.}
+\item{Title}{The short name of the rule.}
+\item{Description}{A detailed description of the rule.}
+\item{Priority}{The priority ranking of the rule.}
+\item{Violation_Reason}{The reason provided for a rule violation.}
 }
 }
 \description{

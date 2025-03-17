@@ -4,14 +4,12 @@
 \alias{get_subreddit_info}
 \title{Retrieve Subreddit Information}
 \usage{
-get_subreddit_info(subreddit, access_token, username)
+get_subreddit_info(subreddit, access_token)
 }
 \arguments{
 \item{subreddit}{A string specifying the name of the subreddit.}
 
 \item{access_token}{A string representing the access token obtained via Reddit API authentication.}
-
-\item{username}{A string representing the Reddit username used for the User-Agent header.}
 }
 \value{
 A data frame containing details of the subreddit, including:

@@ -4,14 +4,12 @@
 \alias{get_user_info}
 \title{Retrieve Reddit User Information}
 \usage{
-get_user_info(reddit_username, access_token, username)
+get_user_info(reddit_username, access_token)
 }
 \arguments{
 \item{reddit_username}{A string specifying the Reddit username whose information is being retrieved.}
 
 \item{access_token}{A string representing the access token obtained via Reddit API authentication.}
-
-\item{username}{A string representing the Reddit username used for the User-Agent header.}
 }
 \value{
 A data frame containing details of the Reddit user, including:

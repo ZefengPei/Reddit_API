@@ -13,15 +13,15 @@ get_post_comments(subreddit, post_id, access_token, username)
 
 \item{access_token}{A string containing the access token obtained via Reddit API authentication.}
 
-\item{username}{A string specifying the Reddit username (used in the User-Agent header).}
+\item{username}{A string containing the Reddit username (used in User-Agent header).}
 }
 \value{
 A data frame containing the following columns:
 \describe{
-  \item{Author}{The username of the comment author.}
-  \item{Comment}{The text content of the comment (or "[Deleted]" if removed).}
-  \item{Upvotes}{The number of upvotes the comment has received.}
-  \item{Replies}{The number of direct replies to the comment.}
+\item{Author}{The username of the comment author.}
+\item{Comment}{The text content of the comment (or "\link{Deleted}" if removed).}
+\item{Upvotes}{The number of upvotes the comment has received.}
+\item{Replies}{The number of direct replies to the comment.}
 }
 
 If no comments are found, the function returns a data frame with a message indicating that no comments are available.

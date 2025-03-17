@@ -1,0 +1,11 @@
+Package: reddit_api
+Title: Reddit API Wrapper for R
+Version: 0.1.0
+Authors@R: c(person("Zefeng", "", email = "zefengpei@gmail.com", role = c("aut", "cre")),person("Mohammohamed", "", role = c("aut", "ctb")))
+Maintainer: Zefeng Pei <zefengpei@gmail.com>
+Description: An R package that provides a wrapper for the Reddit API, allowing users to retrieve subreddit rules and other data.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
