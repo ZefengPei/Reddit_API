@@ -4,7 +4,6 @@
 #'
 #' @param subreddit A string specifying the subreddit name.
 #' @param access_token A string containing the access token obtained via Reddit API authentication.
-#' @param username A string specifying the Reddit username (used in the User-Agent header).
 #'
 #' @return A data frame containing the following columns:
 #' \describe{
@@ -22,14 +21,14 @@
 #' }
 #'
 #' @export
-get_subreddit_rules <- function(subreddit, access_token, username) {
+get_subreddit_rules <- function(subreddit, access_token) {
   # Construct the URL for subreddit rules
   url <- paste0("https://oauth.reddit.com/r/", subreddit, "/about/rules")
 
   # Send the GET request to fetch the rules
   response <- GET(url, add_headers(
     Authorization = paste("bearer", access_token),
-    "User-Agent" = paste0("R:RedditAPI:v1.0 (by /u/", username, ")")
+    user_agent("R:RedditPackage:v1.0 (by /u/username)")
   ))
 
   # Check if the response is successful (status code 200)

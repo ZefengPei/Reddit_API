@@ -4,7 +4,6 @@
 #'
 #' @param subreddit A string specifying the name of the subreddit.
 #' @param access_token A string representing the access token obtained via Reddit API authentication.
-#' @param username A string representing the Reddit username used for the User-Agent header.
 #'
 #' @return A data frame containing details of the subreddit, including:
 #' \item{title}{The name of the subreddit.}
@@ -33,12 +32,13 @@
 #' }
 #'
 #' @export
-get_subreddit_info <- function(subreddit, access_token, username) {
+get_subreddit_info <- function(subreddit, access_token) {
   url <- paste0("https://oauth.reddit.com/r/", subreddit, "/about")
 
   response <- GET(url, add_headers(
     Authorization = paste("bearer", access_token),
-    "User-Agent" = paste0("R:RedditAPI:v1.0 (by /u/", username, ")")
+    user_agent("R:RedditPackage:v1.0 (by /u/username)")
+
   ))
 
   if (status_code(response) == 200) {

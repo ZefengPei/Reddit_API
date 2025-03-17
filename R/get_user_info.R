@@ -4,7 +4,6 @@
 #'
 #' @param reddit_username A string specifying the Reddit username whose information is being retrieved.
 #' @param access_token A string representing the access token obtained via Reddit API authentication.
-#' @param username A string representing the Reddit username used for the User-Agent header.
 #'
 #' @return A data frame containing details of the Reddit user, including:
 #' \item{Username}{The Reddit username.}
@@ -23,11 +22,12 @@
 #' }
 #'
 #' @export
-get_user_info <- function(reddit_username, access_token, username) {
+get_user_info <- function(reddit_username, access_token) {
   url <- paste0("https://oauth.reddit.com/user/", reddit_username, "/about")
 
   response <- GET(url, add_headers(Authorization = paste("bearer", access_token),
-                                   "User-Agent" = paste0("R:RedditAPI:v1.0 (by /u/", username, ")")
+                                   user_agent("R:RedditPackage:v1.0 (by /u/username)")
+
   ))
 
   if (status_code(response) == 200) {

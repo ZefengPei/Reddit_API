@@ -5,7 +5,6 @@
 #' @param subreddit A string specifying the subreddit name (without the "/r/").
 #' @param access_token A string representing the access token obtained via Reddit API authentication.
 #' @param limit An integer specifying the number of posts to retrieve.
-#' @param username A string representing the Reddit username used for the User-Agent header.
 #'
 #' @return A data frame containing details of the retrieved posts, including:
 #' \item{id}{The post ID.}
@@ -25,15 +24,13 @@
 #' }
 #'
 #' @export
-get_subreddit_posts <- function(subreddit, access_token, limit, username) {
+get_subreddit_posts <- function(subreddit, access_token, limit) {
   url <- paste0("https://oauth.reddit.com/r/", subreddit, "/hot?limit=", limit)
 
   response <- GET(
     url,
     add_headers(Authorization = paste("bearer", access_token)),
-    "User-Agent" = paste0("R:RedditAPI:v1.0 (by /u/", username, ")")
-
-  )
+    user_agent("R:RedditPackage:v1.0 (by /u/username)"))
 
   # Check if API response is successful
   if (http_status(response)$category != "Success") {
