@@ -30,7 +30,7 @@ get_subreddit_posts <- function(subreddit, access_token, limit) {
   response <- GET(
     url,
     add_headers(Authorization = paste("bearer", access_token)),
-    user_agent("R:RedditPackage:v1.0 (by /u/username)"))
+    user_agent(paste0("R:RedditPackage:v1.0 (by /u/", username, ")")))
 
   # Check if API response is successful
   if (http_status(response)$category != "Success") {

@@ -26,7 +26,7 @@ get_user_info <- function(reddit_username, access_token) {
   url <- paste0("https://oauth.reddit.com/user/", reddit_username, "/about")
 
   response <- GET(url, add_headers(Authorization = paste("bearer", access_token),
-                                   "user_agent" = ("R:RedditPackage:v1.0 (by /u/username)")
+                                   `User-Agent` = paste("R:RedditPackage:v1.0 (by /u/", username, ")", sep = "")
 
   ))
 

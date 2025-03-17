@@ -1,0 +1,6 @@
+id,Title,Author,Subreddit,Upvotes,Comments,URL,Created
+1jcfchv,Popular GitHub Action `tj-actions/changed-files` has been compromised with a payload that appears to attempt to dump secrets,alexeyr,programming,569,32,https://semgrep.dev/blog/2025/popular-github-action-tj-actionschanged-files-is-compromised/,2025-03-16T06:24:24Z
+1jcslub,The Ultimate Git Tutorial (Git 2.48),jhcarl0814,programming,31,0,https://www.reddit.com/r/git/comments/1jbqods/the_ultimate_git_tutorial_git_248/,2025-03-16T18:50:11Z
+1jd20c6,JSVaporizer,General-Parsley8906,programming,9,2,https://github.com/Pardus-Projects/JSVaporizer,2025-03-17T02:05:46Z
+1jctxqb,"LZAV 4.9: Increased decompression speed, resolved all msan issues, better platform detection. Fast In-Memory Data Compression Algorithm (inline C/C++) 460+MB/s compress, 2800+MB/s decompress, ratio% better than LZ4, Snappy, and Zstd@-1",avaneev,programming,17,0,https://github.com/avaneev/lzav,2025-03-16T19:46:35Z
+1jcz4me,"GitHub - ronilan/crumbicon: An SVG favicon editor for your terminal (written in Crumb, providing prebuilt Linux &amp; Mac binaries)",ronilan,programming,5,0,https://github.com/ronilan/crumbicon,2025-03-16T23:40:40Z

@@ -38,7 +38,7 @@ test_that("get_post_comments() should return a valid response", {
   print(paste("Fetching comments for post ID:", post_id))
 
   # 3️⃣ Retrieve comments for the selected post
-  comments <- get_post_comments(subreddit_name, post_id, access_token)
+  comments <- get_post_comments(subreddit_name, post_id, access_token, username)
 
   # 4️⃣ Check the response
   expect_true(is.list(comments) || is.data.frame(comments))  # The result should be a list or data.frame

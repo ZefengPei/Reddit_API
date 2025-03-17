@@ -28,7 +28,7 @@ get_subreddit_rules <- function(subreddit, access_token) {
   # Send the GET request to fetch the rules
   response <- GET(url, add_headers(
     Authorization = paste("bearer", access_token),
-    "user_agent" = ("R:RedditPackage:v1.0 (by /u/username)")
+    `User-Agent` = paste("R:RedditPackage:v1.0 (by /u/", username, ")", sep = "")
   ))
 
   # Check if the response is successful (status code 200)
