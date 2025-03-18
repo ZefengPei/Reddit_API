@@ -1,4 +1,4 @@
-name: Run R Tests
+name: Run R Tests on Windows Self-Hosted Runner
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
 
 jobs:
   test:
-    runs-on: self-hosted  # Windows 自托管 Runner
+    runs-on: self-hosted  # 运行在本地 Windows 机器
 
     env:
       CLIENT_ID: ${{ secrets.CLIENT_ID }}
@@ -20,15 +20,17 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Set PowerShell Execution Policy (Fix Security Error)
+        run: powershell -Command "Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force"
+        shell: cmd
+
       - name: Print working directory (Windows)
-        run: Get-Location
-        shell: powershell
+        run: powershell -Command "Get-Location"
+        shell: cmd
 
       - name: Debug Environment Variables
-        run: |
-          echo "CLIENT_ID=${env:CLIENT_ID}"
-          echo "REDDIT_USERNAME=${env:REDDIT_USERNAME}"
-        shell: powershell
+        run: powershell -Command "Write-Output 'CLIENT_ID='${env:CLIENT_ID}'; REDDIT_USERNAME='${env:REDDIT_USERNAME}"
+        shell: cmd
 
       - name: Set up R environment
         uses: r-lib/actions/setup-r@v2
