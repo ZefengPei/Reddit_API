@@ -1,0 +1,96 @@
+---
+title: "Using the Reddit API Package"
+author: "Zefeng Pei"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Using the Reddit API Package}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+## Introduction
+
+This vignette provides an overview of the Reddit API package, which facilitates retrieving and analyzing data from Reddit. The package allows users to authenticate, fetch subreddit details, retrieve posts and comments, and perform sentiment analysis.
+
+## Installation
+
+To install the package, use the following command:
+
+```r
+# Install from GitHub (if applicable)
+# install.packages("devtools")
+devtools::install_github("your-repo/Reddit_API")
+```
+
+Load the package:
+
+```r
+library(Reddit_API)
+```
+
+## Authentication
+
+Before making API calls, authenticate using your Reddit API credentials:
+
+```r
+reddit_auth(client_id = "your_client_id",
+            client_secret = "your_client_secret",
+            user_agent = "your_user_agent")
+```
+
+## Retrieving Subreddit Information
+
+Get general information about a subreddit:
+
+```r
+info <- get_subreddit_info("rstats")
+print(info)
+```
+
+## Fetching Posts from a Subreddit
+
+Retrieve recent posts from a subreddit:
+
+```r
+posts <- get_subreddit_posts("rstats", limit = 10)
+head(posts)
+```
+
+## Getting Comments from a Post
+
+Retrieve comments from a specific post:
+
+```r
+comments <- get_post_comments(post_id = "t3_exampleid")
+head(comments)
+```
+
+## Fetching User Information
+
+Retrieve information about a Reddit user:
+
+```r
+user_info <- get_user_info("reddit_username")
+print(user_info)
+```
+
+## Analyzing and Visualizing Data
+
+Perform sentiment analysis on Reddit comments:
+
+```r
+sentiment_results <- analyze_reddit_comments(comments)
+print(sentiment_results)
+```
+
+Visualize the sentiment distribution:
+
+```r
+store_and_visualize_reddit(sentiment_results)
+```
+
+## Conclusion
+
+This package simplifies access to Reddit data, allowing users to fetch, analyze, and visualize information efficiently. For more details, refer to the function documentation using `?function_name` in R.
+
