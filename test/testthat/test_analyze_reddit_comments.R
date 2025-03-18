@@ -5,16 +5,21 @@ library(httr)
 library(tidyverse)
 
 # Load Reddit API and Sentiment Analysis function
-source("C:/Users/zefen/Desktop/MDS/534/Reddit_API/R/reddit_auth.R")
-source("C:/Users/zefen/Desktop/MDS/534/Reddit_API/R/get_subreddit_posts.R")
-source("C:/Users/zefen/Desktop/MDS/534/Reddit_API/R/get_post_comments.R")
-source("C:/Users/zefen/Desktop/MDS/534/Reddit_API/R/analyze_reddit_comments.R")
+source(file.path(getwd(), "R", "reddit_auth.R"))
+source(file.path(getwd(), "R", "get_subreddit_posts.R"))
+source(file.path(getwd(), "R", "get_post_comments.R"))
+source(file.path(getwd(), "R", "analyze_reddit_comments.R"))
+
+
 
 # Use fixed Reddit API credentials for testing
-client_id <- "PeAknuUXpERmde8cC-sSEQ"
-client_secret <- "3uy3ngtkPB0vlnCogMpeemmnaMEqaA"
-username <- "Fantastic_Snow_7640"
-password <- "bay_reddit"
+client_id <- Sys.getenv("CLIENT_ID")
+client_secret <- Sys.getenv("CLIENT_SECRET")
+username <- Sys.getenv("REDDIT_USERNAME")
+password <- Sys.getenv("REDDIT_PASSWORD")
+print(paste("DEBUG: CLIENT_ID =", Sys.getenv("CLIENT_ID")))
+print(paste("DEBUG: REDDIT_USERNAME =", Sys.getenv("REDDIT_USERNAME")))
+
 
 test_that("analyze_reddit_comments() works correctly", {
 
