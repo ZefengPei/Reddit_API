@@ -14,17 +14,18 @@ vignette: >
 This vignette provides an overview of the Reddit API package, which facilitates retrieving and analyzing data from Reddit. The package allows users to authenticate, fetch subreddit details, retrieve posts and comments, and perform sentiment analysis.
 
 ### **API Flow Overview**
+
 The following diagram illustrates the API request flow for retrieving data:
 
 ```{r, echo=FALSE, out.width="80%", fig.align='center'}
-knitr::include_graphics("vignettes/api_flow_diagram.png")
+knitr::include_graphics("api_flow_diagram.png")
 ```
 
 ## Installation
 
 To install the package, use the following command:
 
-```r
+``` r
 # Install from GitHub (if applicable)
 # install.packages("devtools")
 devtools::install_github("your-repo/Reddit_API")
@@ -32,7 +33,7 @@ devtools::install_github("your-repo/Reddit_API")
 
 Load the package:
 
-```r
+``` r
 library(Reddit_API)
 ```
 
@@ -40,17 +41,15 @@ library(Reddit_API)
 
 Before making API calls, authenticate using your Reddit API credentials:
 
-```r
-reddit_auth(client_id = "your_client_id", 
-            client_secret = "your_client_secret", 
-            user_agent = "your_user_agent")
+``` r
+reddit_auth(client_id, client_secret, username, password)
 ```
 
 ## Retrieving Subreddit Information
 
 Get general information about a subreddit:
 
-```r
+``` r
 info <- get_subreddit_info("rstats")
 print(info)
 ```
@@ -59,45 +58,40 @@ print(info)
 
 Retrieve recent posts from a subreddit:
 
-```r
-posts <- get_subreddit_posts("rstats", limit = 10)
-head(posts)
+``` r
+posts <- get_subreddit_posts(subreddit, access_token, limit)
 ```
 
 ## Getting Comments from a Post
 
 Retrieve comments from a specific post:
 
-```r
-comments <- get_post_comments(post_id = "t3_exampleid")
-head(comments)
+``` r
+comments <- get_post_comments(subreddit, post_id, access_token, username)
 ```
 
 ## Fetching User Information
 
 Retrieve information about a Reddit user:
 
-```r
-user_info <- get_user_info("reddit_username")
-print(user_info)
+``` r
+user_info <- get_user_info(reddit_username, access_token)
 ```
 
 ## Analyzing and Visualizing Data
 
 Perform sentiment analysis on Reddit comments:
 
-```r
-sentiment_results <- analyze_reddit_comments(comments)
-print(sentiment_results)
+``` r
+sentiment_results <- analyze_reddit_comments(subreddit, post_id, access_token, username)
 ```
 
 Visualize the sentiment distribution:
 
-```r
-store_and_visualize_reddit(sentiment_results)
+``` r
+store_and_visualize_reddit(subreddit, access_token, username, limit = 10)
 ```
 
 ## Conclusion
 
 This package simplifies access to Reddit data, allowing users to fetch, analyze, and visualize information efficiently. For more details, refer to the function documentation using `?function_name` in R.
-
