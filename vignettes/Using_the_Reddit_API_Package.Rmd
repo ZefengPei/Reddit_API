@@ -13,6 +13,13 @@ vignette: >
 
 This vignette provides an overview of the Reddit API package, which facilitates retrieving and analyzing data from Reddit. The package allows users to authenticate, fetch subreddit details, retrieve posts and comments, and perform sentiment analysis.
 
+### **API Flow Overview**
+The following diagram illustrates the API request flow for retrieving data:
+
+```{r, echo=FALSE, out.width="80%", fig.align='center'}
+knitr::include_graphics("vignettes/api_flow_diagram.png")
+```
+
 ## Installation
 
 To install the package, use the following command:
@@ -34,8 +41,8 @@ library(Reddit_API)
 Before making API calls, authenticate using your Reddit API credentials:
 
 ```r
-reddit_auth(client_id = "your_client_id",
-            client_secret = "your_client_secret",
+reddit_auth(client_id = "your_client_id", 
+            client_secret = "your_client_secret", 
             user_agent = "your_user_agent")
 ```
 
