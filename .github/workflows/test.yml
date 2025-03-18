@@ -26,13 +26,31 @@ jobs:
 
       - name: Install required R packages
         run: |
-          install.packages(c('testthat', 'httr', 'tidyverse', 'tidytext'))
+          options(repos = c(CRAN = "https://cloud.r-project.org"))
+          install_if_missing <- function(pkg) {
+            if (!requireNamespace(pkg, quietly = TRUE)) {
+              install.packages(pkg)
+            }
+          }
+          install_if_missing("testthat")
+          install_if_missing("httr")
+          install_if_missing("tidyverse")
+          install_if_missing("tidytext")
+          installed.packages()
+        shell: Rscript {0}
+
+      - name: Verify installed R packages
+        run: |
+          library(testthat)
+          library(httr)
+          library(tidyverse)
+          library(tidytext)
         shell: Rscript {0}
 
       - name: Run tests
         run: |
           library(testthat)
-          test_dir("test/testthat/", reporter = "summary")
+          test_dir("tests/testthat/", reporter = "summary")
         shell: Rscript {0}
 
       - name: Upload test results if failed
