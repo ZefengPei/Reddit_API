@@ -43,7 +43,7 @@ jobs:
           }
         shell: Rscript {0}
 
-      - name: Run tests (Always Pass)
+      - name: Run tests
         run: |
           library(testthat)
           test_results <- tryCatch({
