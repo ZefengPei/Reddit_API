@@ -11,10 +11,10 @@ jobs:
     runs-on: self-hosted
 
     env:
-      CLIENT_ID: ${{ secrets.CLIENT_ID }}
-      CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
-      REDDIT_USERNAME: ${{ secrets.REDDIT_USERNAME }}
-      REDDIT_PASSWORD: ${{ secrets.REDDIT_PASSWORD }}
+      client_id: ${{ secrets.CLIENT_ID }}
+      client_secret: ${{ secrets.CLIENT_SECRET }}
+      username: ${{ secrets.REDDIT_USERNAME }}
+      password: ${{ secrets.REDDIT_PASSWORD }}
 
     steps:
       - name: Checkout repository
