@@ -1,0 +1,60 @@
+name: RunRTests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: self-hosted  
+
+    env:
+      CLIENT_ID: ${{ secrets.CLIENT_ID }}
+      CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+      REDDIT_USERNAME: ${{ secrets.REDDIT_USERNAME }}
+      REDDIT_PASSWORD: ${{ secrets.REDDIT_PASSWORD }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Print working directory
+        run: pwd
+        shell: bash
+
+      - name: Debug Environment Variables
+        run: |
+          echo "CLIENT_ID=${CLIENT_ID}"
+          echo "REDDIT_USERNAME=${REDDIT_USERNAME}"
+        shell: bash  
+
+      - name: Set up R environment
+        uses: r-lib/actions/setup-r@v2
+
+      - name: Install required R packages
+        run: |
+          install.packages(c("testthat", "httr", "tidyverse", "tidytext"), dependencies = TRUE)
+        shell: Rscript {0}
+
+      - name: Verify installed R packages
+        run: |
+          library(testthat)
+          library(httr)
+          library(tidyverse)
+          library(tidytext)
+        shell: Rscript {0}
+
+      - name: Run tests
+        run: |
+          library(testthat)
+          test_dir("tests/testthat/", reporter = "summary")
+        shell: Rscript {0}
+
+      - name: Upload test results if failed
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: tests/testthat/
