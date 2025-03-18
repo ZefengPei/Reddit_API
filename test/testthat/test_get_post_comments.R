@@ -4,19 +4,15 @@ library(testthat)
 library(httr)
 
 # Load Reddit API functions
-source(file.path(getwd(), "R", "reddit_auth.R"))
-source(file.path(getwd(), "R", "get_subreddit_posts.R"))
-source(file.path(getwd(), "R", "get_post_comments.R"))
+source("C:/Users/zefen/Desktop/MDS/534/Reddit_API/R/reddit_auth.R")
+source("C:/Users/zefen/Desktop/MDS/534/Reddit_API/R/get_subreddit_posts.R")
+source("C:/Users/zefen/Desktop/MDS/534/Reddit_API/R/get_post_comments.R")
 
-
-# Set Reddit API credentials
-client_id <- Sys.getenv("CLIENT_ID")
-client_secret <- Sys.getenv("CLIENT_SECRET")
-username <- Sys.getenv("REDDIT_USERNAME")
-password <- Sys.getenv("REDDIT_PASSWORD")
-
-print(paste("DEBUG: CLIENT_ID =", Sys.getenv("CLIENT_ID")))
-print(paste("DEBUG: REDDIT_USERNAME =", Sys.getenv("REDDIT_USERNAME")))
+# Set Reddit API credentials (hardcoded for local testing)
+client_id <- "PeAknuUXpERmde8cC-sSEQ"
+client_secret <- "3uy3ngtkPB0vlnCogMpeemmnaMEqaA"
+username <- "Fantastic_Snow_7640"
+password <- "bay_reddit"
 
 # Run the test
 test_that("get_post_comments() should return a valid response", {
@@ -64,5 +60,5 @@ test_that("get_post_comments() should return a valid response", {
   # 6️⃣ Debugging output
   print("Test completed successfully. Here are some comments:")
   print(comments)
-
+  succeed()
 })

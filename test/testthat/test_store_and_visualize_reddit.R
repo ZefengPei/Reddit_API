@@ -5,19 +5,16 @@ library(httr)
 library(tidyverse)
 
 # Load Reddit API functions and the main function to test
-source(file.path(getwd(), "R", "reddit_auth.R"))
-source(file.path(getwd(), "R", "get_subreddit_posts.R"))
-source(file.path(getwd(), "R", "get_post_comments.R"))
-source(file.path(getwd(), "R", "store_and_visualize_reddit.R"))
-
+source("C:/Users/zefen/Desktop/MDS/534/Reddit_API/R/reddit_auth.R")
+source("C:/Users/zefen/Desktop/MDS/534/Reddit_API/R/get_subreddit_posts.R")
+source("C:/Users/zefen/Desktop/MDS/534/Reddit_API/R/get_post_comments.R")
+source("C:/Users/zefen/Desktop/MDS/534/Reddit_API/R/store_and_visualize_reddit.R")
 
 # Use fixed Reddit API credentials for testing
-client_id <- Sys.getenv("CLIENT_ID")
-client_secret <- Sys.getenv("CLIENT_SECRET")
-username <- Sys.getenv("REDDIT_USERNAME")
-password <- Sys.getenv("REDDIT_PASSWORD")
-print(paste("DEBUG: CLIENT_ID =", Sys.getenv("CLIENT_ID")))
-print(paste("DEBUG: REDDIT_USERNAME =", Sys.getenv("REDDIT_USERNAME")))
+client_id <- "PeAknuUXpERmde8cC-sSEQ"
+client_secret <- "3uy3ngtkPB0vlnCogMpeemmnaMEqaA"
+username <- "Fantastic_Snow_7640"
+password <- "bay_reddit"
 
 
 test_that("store_and_visualize_reddit() should correctly store and process data", {
@@ -77,5 +74,5 @@ test_that("store_and_visualize_reddit() should correctly store and process data"
   expect_true(file.exists(sentiment_image))
 
   print("✅ Test completed successfully. Data stored, processed, and visualized correctly.")
-
+   succeed()
 })

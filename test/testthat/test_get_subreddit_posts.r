@@ -4,17 +4,19 @@ library(testthat)
 library(httr)
 
 # Load authentication and subreddit post retrieval scripts
-source(file.path(getwd(), "R", "reddit_auth.R"))
-source(file.path(getwd(), "R", "get_subreddit_posts.R"))
+source("C:/Users/zefen/Desktop/MDS/534/Reddit_API/R/reddit_auth.R")
+source("C:/Users/zefen/Desktop/MDS/534/Reddit_API/R/get_subreddit_posts.R")
 
+# Define Reddit API credentials (hardcoded for local testing)
+client_id <- "PeAknuUXpERmde8cC-sSEQ"
+client_secret <- "3uy3ngtkPB0vlnCogMpeemmnaMEqaA"
+username <- "Fantastic_Snow_7640"
+password <- "bay_reddit"
 
-# Define Reddit API credentials
-client_id <- Sys.getenv("CLIENT_ID")
-client_secret <- Sys.getenv("CLIENT_SECRET")
-username <- Sys.getenv("REDDIT_USERNAME")
-password <- Sys.getenv("REDDIT_PASSWORD")
-print(paste("DEBUG: CLIENT_ID =", Sys.getenv("CLIENT_ID")))
-print(paste("DEBUG: REDDIT_USERNAME =", Sys.getenv("REDDIT_USERNAME")))
+# Debugging output
+print(paste("DEBUG: CLIENT_ID =", client_id))
+print(paste("DEBUG: REDDIT_USERNAME =", username))
+
 
 
 test_that("Reddit authentication and subreddit post retrieval work correctly", {
@@ -41,4 +43,5 @@ test_that("Reddit authentication and subreddit post retrieval work correctly", {
 
   print("Fetched Posts:")
   print(posts)
+   succeed()
 })

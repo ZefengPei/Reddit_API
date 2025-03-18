@@ -6,19 +6,12 @@ library(httr)
 # Load authentication and user info retrieval scripts
 source("C:/Users/zefen/Desktop/MDS/534/Reddit_API/R/reddit_auth.R")
 source("C:/Users/zefen/Desktop/MDS/534/Reddit_API/R/get_user_info.R")
-source(file.path(getwd(), "R", "reddit_auth.R"))
-source(file.path(getwd(), "R", "get_user_info.R.R"))
 
-
-# Define Reddit API credentials
-client_id <- Sys.getenv("CLIENT_ID")
-client_secret <- Sys.getenv("CLIENT_SECRET")
-username <- Sys.getenv("REDDIT_USERNAME")
-password <- Sys.getenv("REDDIT_PASSWORD")
-print(paste("DEBUG: CLIENT_ID =", Sys.getenv("CLIENT_ID")))
-print(paste("DEBUG: REDDIT_USERNAME =", Sys.getenv("REDDIT_USERNAME")))
-
-
+# Define Reddit API credentials (hardcoded for local testing)
+client_id <- "PeAknuUXpERmde8cC-sSEQ"
+client_secret <- "3uy3ngtkPB0vlnCogMpeemmnaMEqaA"
+username <- "Fantastic_Snow_7640"
+password <- "bay_reddit"
 test_that("get_user_info() should return valid user details", {
   
   # 1️⃣ Authenticate and obtain access token
@@ -58,4 +51,5 @@ test_that("get_user_info() should return valid user details", {
   # 3️⃣ Debugging output
   print("Test completed successfully. User information:")
   print(user_info)
+   succeed()
 })

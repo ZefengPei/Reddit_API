@@ -6,18 +6,13 @@ library(httr)
 # Load authentication and subreddit rules retrieval scripts
 source("C:/Users/zefen/Desktop/MDS/534/Reddit_API/R/reddit_auth.R")
 source("C:/Users/zefen/Desktop/MDS/534/Reddit_API/R/get_subreddit_rules.R")
-source(file.path(getwd(), "R", "reddit_auth.R"))
-source(file.path(getwd(), "R", "get_subreddit_posts.R"))
+source("C:/Users/zefen/Desktop/MDS/534/Reddit_API/R/get_subreddit_posts.R")
 
-
-# Define Reddit API credentials
-client_id <- Sys.getenv("CLIENT_ID")
-client_secret <- Sys.getenv("CLIENT_SECRET")
-username <- Sys.getenv("REDDIT_USERNAME")
-password <- Sys.getenv("REDDIT_PASSWORD")
-print(paste("DEBUG: CLIENT_ID =", Sys.getenv("CLIENT_ID")))
-print(paste("DEBUG: REDDIT_USERNAME =", Sys.getenv("REDDIT_USERNAME")))
-
+# Define Reddit API credentials (hardcoded for local testing)
+client_id <- "PeAknuUXpERmde8cC-sSEQ"
+client_secret <- "3uy3ngtkPB0vlnCogMpeemmnaMEqaA"
+username <- "Fantastic_Snow_7640"
+password <- "bay_reddit"
 
 test_that("get_subreddit_rules() should return valid rules for a subreddit", {
   
@@ -56,4 +51,5 @@ test_that("get_subreddit_rules() should return valid rules for a subreddit", {
   # 3️⃣ Debugging output
   print("Test completed successfully. Subreddit rules:")
   print(rules)
+   succeed()
 })
