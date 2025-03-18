@@ -8,7 +8,7 @@ on:
 
 jobs:
   test:
-    runs-on: self-hosted  # 让 GitHub Actions 运行在你的 Windows 主机
+    runs-on: self-hosted  
 
     steps:
       - name: Checkout repository
@@ -30,7 +30,7 @@ jobs:
       - name: Run tests
         run: |
           library(testthat)
-          test_dir("tests/testthat/", reporter = "summary")
+          test_dir("test/testthat/", reporter = "summary")
         shell: Rscript {0}
 
       - name: Upload test results if failed
