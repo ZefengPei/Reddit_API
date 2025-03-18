@@ -32,7 +32,7 @@ jobs:
       - name: Run tests
         run: |
           library(testthat)
-          test_dir("tests/testthat/", reporter = "summary")
+          test_dir("test/testthat/", reporter = "summary")
         shell: Rscript {0}
 
       - name: Upload test results if failed
