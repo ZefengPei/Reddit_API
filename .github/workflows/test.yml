@@ -8,15 +8,20 @@ on:
 
 jobs:
   test:
-    runs-on: self-hosted  
+    runs-on: self-hosted
+
+    env:
+      CLIENT_ID: ${{ secrets.CLIENT_ID }}
+      CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+      REDDIT_USERNAME: ${{ secrets.REDDIT_USERNAME }}
+      REDDIT_PASSWORD: ${{ secrets.REDDIT_PASSWORD }}
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Print R session info (debug)
-        run: |
-          sessionInfo()
+        run: sessionInfo()
         shell: Rscript {0}
 
       - name: Verify installed R packages
@@ -30,7 +35,7 @@ jobs:
       - name: Run tests
         run: |
           library(testthat)
-          test_dir("test/testthat/", reporter = "summary")
+          test_dir("tests/testthat/", reporter = "summary")
         shell: Rscript {0}
 
       - name: Upload test results if failed
