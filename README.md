@@ -1,4 +1,5 @@
 # Reddit API R Package
+
 ![Workflow Status](https://github.com/ZefengPei/Reddit_API/actions/workflows/test.yml/badge.svg)
 
 This R package provides an interface to interact with the Reddit API, allowing users to retrieve various types of Reddit data such as posts, comments, user profiles, and subreddit details. It also includes sentiment analysis for Reddit comments and data visualization.
@@ -31,8 +32,10 @@ To install the package, clone the repository and install the necessary dependenc
 3. Load the package functions:
    ```r
    source("path-to-repo/reddit_auth.R")
+   source("path-to-repo/get_subreddit_info.R")
    source("path-to-repo/get_subreddit_posts.R")
    source("path-to-repo/get_post_comments.R")
+   source("path-to-repo/get_user_info.R")
    source("path-to-repo/analyze_reddit_comments.R")
    source("path-to-repo/store_and_visualize_reddit.R")
    ```
@@ -43,28 +46,46 @@ To install the package, clone the repository and install the necessary dependenc
 ```r
 access_token <- reddit_auth(client_id, client_secret, username, password)
 ```
+This function authenticates the user using Reddit API credentials and returns an access token.
 
-### **2️⃣ Fetch Subreddit Posts**
+### **2️⃣ Fetch Subreddit Information**
+```r
+info <- get_subreddit_info("rstats")
+print(info)
+```
+This function retrieves general information about a subreddit, including its description, subscriber count, and creation date.
+
+### **3️⃣ Fetch Subreddit Posts**
 ```r
 subreddit <- "programming"
 posts <- get_subreddit_posts(subreddit, access_token, limit = 10)
 print(posts)
 ```
+Retrieves the most recent posts from the specified subreddit.
 
-### **3️⃣ Fetch Comments for a Specific Post**
+### **4️⃣ Fetch Comments for a Specific Post**
 ```r
 post_id <- "1jcfchv"
 comments <- get_post_comments(subreddit, post_id, access_token, username)
 print(comments)
 ```
+Retrieves all comments from a specific Reddit post.
 
-### **4️⃣ Analyze Reddit Comments**
+### **5️⃣ Fetch User Information**
+```r
+user_info <- get_user_info(reddit_username, access_token)
+print(user_info)
+```
+This function retrieves details about a Reddit user, including their karma, moderator status, and account age.
+
+### **6️⃣ Analyze Reddit Comments**
 ```r
 sentiment_results <- analyze_reddit_comments(subreddit, post_id, access_token, username)
 print(sentiment_results)
 ```
+Performs sentiment analysis on the comments of a specified post using the AFINN sentiment lexicon.
 
-### **5️⃣ Store and Visualize Reddit Data**
+### **7️⃣ Store and Visualize Reddit Data**
 ```r
 store_and_visualize_reddit(subreddit, access_token, username, limit = 10)
 ```
@@ -105,5 +126,3 @@ Make sure these packages are installed before using the package.
 
 ## License
 This package is open-source and distributed under the MIT License.
-
-
