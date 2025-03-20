@@ -42,31 +42,31 @@ To install the package, clone the repository and install the necessary dependenc
 
 ## Usage
 
-### ** Authenticate and Obtain Access Token**
+### **Authenticate and Obtain Access Token**
 ```r
 access_token <- reddit_auth(client_id, client_secret, username, password)
 ```
 This function authenticates the user using Reddit API credentials and returns an access token.
 
-### ** Fetch Subreddit Information**
+### **Fetch Subreddit Information**
 ```r
 info <- get_subreddit_info(subreddit, access_token)
 ```
 This function retrieves general information about a subreddit, including its description, subscriber count, and creation date.
 
-### ** Fetch Subreddit Posts**
+### **Fetch Subreddit Posts**
 ```r
 posts <- get_subreddit_posts(subreddit, access_token, limit)
 ```
 Retrieves the most recent posts from the specified subreddit.
 
-### ** Fetch Comments for a Specific Post**
+### **Fetch Comments for a Specific Post**
 ```r
 comments <- get_post_comments(subreddit, post_id, access_token, username)
 ```
 Retrieves all comments from a specific Reddit post.
 
-## Retrieving Subreddit Rules
+## **Retrieving Subreddit Rules **
 
 Fetch moderation rules for a specified subreddit:
 
@@ -74,19 +74,19 @@ Fetch moderation rules for a specified subreddit:
 rules <- get_subreddit_rules(subreddit, access_token)
 ```
 
-### ** Fetch User Information**
+### **Fetch User Information**
 ```r
 user_info <- get_user_info(reddit_username, access_token)
 ```
 This function retrieves details about a Reddit user, including their karma, moderator status, and account age.
 
-### ** Analyze Reddit Comments**
+### **Analyze Reddit Comments**
 ```r
 sentiment_results <- analyze_reddit_comments(subreddit, post_id, access_token, username)
 ```
 Performs sentiment analysis on the comments of a specified post using the AFINN sentiment lexicon.
 
-### ** Store and Visualize Reddit Data**
+### **Store and Visualize Reddit Data**
 ```r
 store_and_visualize_reddit(subreddit, access_token, username, limit = 10)
 ```
