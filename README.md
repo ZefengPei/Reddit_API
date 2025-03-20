@@ -66,7 +66,7 @@ comments <- get_post_comments(subreddit, post_id, access_token, username)
 ```
 Retrieves all comments from a specific Reddit post.
 
-## **Retrieving Subreddit Rules **
+### **Retrieving Subreddit Rules**
 
 Fetch moderation rules for a specified subreddit:
 
