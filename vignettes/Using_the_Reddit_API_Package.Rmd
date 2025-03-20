@@ -50,8 +50,7 @@ reddit_auth(client_id, client_secret, username, password)
 Get general information about a subreddit:
 
 ``` r
-info <- get_subreddit_info("rstats")
-print(info)
+info <- get_subreddit_info(subreddit, access_token)
 ```
 
 ## Fetching Posts from a Subreddit
@@ -76,6 +75,14 @@ Retrieve information about a Reddit user:
 
 ``` r
 user_info <- get_user_info(reddit_username, access_token)
+```
+
+## Retrieving Subreddit Rules
+
+Fetch moderation rules for a specified subreddit:
+
+``` r
+rules <- get_subreddit_rules(subreddit, access_token) 
 ```
 
 ## Analyzing and Visualizing Data
